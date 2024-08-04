@@ -39,7 +39,16 @@ message HelloReply {
 ```
 ## generate methods
 ```
-python3 -m grpc_tools.protoc -I. --python_out=. --pyi_out=. --grpc_python_out=. ./helloworld.proto
+./generate.sh
+```
+```bash
+rustam@rustam-ZenBook-UX431DA-UM431DA:~/grpc-test-project$ cat generate.sh 
+#!/bin/bash -ex
+
+mkdir -p gen_py
+cp helloworld.proto ./gen_py/.
+python3 -m grpc_tools.protoc -I. --python_out=. --pyi_out=. --grpc_python_out=. ./gen_py/helloworld.proto
+
 
 ```
 ## run
