@@ -14,17 +14,17 @@
 """The Python implementation of the GRPC helloworld.Greeter server."""
 
 from concurrent import futures
-import logging
 
 import grpc
 from gen_py.helloworld_pb2 import HelloReply
 from gen_py.helloworld_pb2_grpc import add_GreeterServicer_to_server, GreeterServicer
+from loguru import logger
 
 
 class Greeter(GreeterServicer):
     def SayHello(self, request, context):
-        print("in sender")
-        print(f"{request=}")
+        logger.info("in sender")
+        logger.info(f"\n{request=}")
         return HelloReply(
             message="Hello, %s!" % request.name,
             id=request.id,
@@ -38,10 +38,9 @@ def serve():
     add_GreeterServicer_to_server(Greeter(), server)
     server.add_insecure_port("[::]:" + port)
     server.start()
-    print("Server started, listening on " + port)
+    logger.info("Server started, listening on " + port)
     server.wait_for_termination()
 
 
 if __name__ == "__main__":
-    logging.basicConfig()
     serve()

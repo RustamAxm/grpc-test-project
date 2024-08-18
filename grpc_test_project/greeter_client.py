@@ -14,8 +14,7 @@
 """The Python implementation of the GRPC helloworld.Greeter client."""
 
 from __future__ import print_function
-
-import logging
+from loguru import logger
 
 import grpc
 from gen_py.helloworld_pb2 import HelloRequest
@@ -26,13 +25,12 @@ def run():
     # NOTE(gRPC Python Team): .close() is possible on a channel and should be
     # used in circumstances in which the with statement does not fit the needs
     # of the code.
-    print("Will try to greet world ...")
+    logger.info("Will try to greet world ...")
     with grpc.insecure_channel("localhost:50051") as channel:
         stub = GreeterStub(channel)
         response = stub.SayHello(HelloRequest(name="you", id=23, payload=[23, 34]))
-    print("Greeter client received: " + f" {response=}")
+    logger.info("Greeter client received: " + f"\n{response=}")
 
 
 if __name__ == "__main__":
-    logging.basicConfig()
     run()
