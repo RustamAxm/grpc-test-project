@@ -26,7 +26,7 @@ class Greeter(GreeterServicer):
         logger.info("in sender")
         logger.info(f"\n{request=}")
         return HelloReply(
-            message="Hello, %s!" % request.name,
+            message=f"Hello, {request.name}",
             id=request.id,
             payload=request.payload,
         )
