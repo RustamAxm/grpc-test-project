@@ -1,3 +1,4 @@
 gen_py
 **__pycache__
 .idea
+.venv
