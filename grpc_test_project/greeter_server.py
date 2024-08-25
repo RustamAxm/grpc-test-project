@@ -19,16 +19,17 @@ import grpc
 from gen_py.helloworld_pb2 import HelloReply
 from gen_py.helloworld_pb2_grpc import add_GreeterServicer_to_server, GreeterServicer
 from loguru import logger
-
+from grpc_test_project.numpy_quaternion import quat_action
 
 class Greeter(GreeterServicer):
     def SayHello(self, request, context):
         logger.info("in sender")
         logger.info(f"\n{request=}")
+        ret_out = quat_action(request.payload)
         return HelloReply(
             message=f"Hello, {request.name}",
             id=request.id,
-            payload=request.payload,
+            payload=ret_out,
         )
 
 

@@ -28,7 +28,7 @@ def run():
     logger.info("Will try to greet world ...")
     with grpc.insecure_channel("localhost:50051") as channel:
         stub = GreeterStub(channel)
-        response = stub.SayHello(HelloRequest(name="you", id=23, payload=[23, 34]))
+        response = stub.SayHello(HelloRequest(name="you", id=23, payload=[1, 0, 0, 0]))
     logger.info("Greeter client received: " + f"\n{response=}")
 
 
