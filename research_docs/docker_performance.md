@@ -65,3 +65,56 @@ docker run -it --rm --cpus="0.1" --name test-grpc --network host grpc-test
 2024-08-25 14:24:27.970 | INFO     | grpc_test_project.numpy_quaternion:quat_action:27 - to_ret=[0.0, -0.75, 0.0, 0.75]
 
 ```
+
+## memory
+```bash
+docker run -it --rm --cpus="0.5" --memory="512m" --name test-grpc --network host grpc-test 
+
+2024-08-25 14:31:56.201 | INFO     | grpc_test_project.numpy_quaternion:quat_action:21 - to_proc=[1.0, 0.0, 0.0, 0.0]
+2024-08-25 14:32:06.940 | INFO     | grpc_test_project.numpy_quaternion:quat_action:27 - to_ret=[0.0, -0.75, 0.0, 0.75]
+
+```
+
+```bash
+docker run -it --rm --cpus="0.5" --memory="256m" --name test-grpc --network host grpc-test 
+
+2024-08-25 14:33:18.129 | INFO     | grpc_test_project.numpy_quaternion:quat_action:21 - to_proc=[1.0, 0.0, 0.0, 0.0]
+2024-08-25 14:33:29.297 | INFO     | grpc_test_project.numpy_quaternion:quat_action:27 - to_ret=[0.0, -0.75, 0.0, 0.75]
+
+```
+
+```bash
+docker run -it --rm --cpus="0.5" --memory="128m" --name test-grpc --network host grpc-test 
+
+2024-08-25 14:35:25.159 | INFO     | grpc_test_project.numpy_quaternion:quat_action:21 - to_proc=[1.0, 0.0, 0.0, 0.0]
+2024-08-25 14:35:36.149 | INFO     | grpc_test_project.numpy_quaternion:quat_action:27 - to_ret=[0.0, -0.75, 0.0, 0.75]
+
+```
+
+```bash
+docker run -it --rm --cpus="0.5" --memory="64m" --name test-grpc --network host grpc-test 
+
+2024-08-25 14:36:57.086 | INFO     | grpc_test_project.numpy_quaternion:quat_action:21 - to_proc=[1.0, 0.0, 0.0, 0.0]
+2024-08-25 14:37:07.940 | INFO     | grpc_test_project.numpy_quaternion:quat_action:27 - to_ret=[0.0, -0.75, 0.0, 0.75]
+
+```
+
+```bash
+ docker run -it --rm --cpus="0.5" --memory="32m" --name test-grpc --network host grpc-test 
+ 
+2024-08-25 14:38:21.084 | INFO     | grpc_test_project.numpy_quaternion:quat_action:21 - to_proc=[1.0, 0.0, 0.0, 0.0]
+2024-08-25 14:38:31.825 | INFO     | grpc_test_project.numpy_quaternion:quat_action:27 - to_ret=[0.0, -0.75, 0.0, 0.75]
+
+```
+
+```bash
+docker run -it --rm --cpus="0.5" --memory="16m" --name test-grpc --network host grpc-test
+
+2024-08-25 14:39:56.269 | INFO     | grpc_test_project.numpy_quaternion:quat_action:21 - to_proc=[1.0, 0.0, 0.0, 0.0]
+2024-08-25 14:40:07.026 | INFO     | grpc_test_project.numpy_quaternion:quat_action:27 - to_ret=[0.0, -0.75, 0.0, 0.75]
+
+```
+
+```bash
+docker run -it --rm --cpus="0.5" --memory="8m" --name test-grpc --network host grpc-test - too small
+```
