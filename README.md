@@ -70,6 +70,9 @@ libprotoc 26.1
 ## Docker demo
 build 
 ```bash
+ poetry export --without-hashes --format=requirements.txt > requirements.txt
+```
+```bash
 docker build -t grpc-test .
 ```
 run container
