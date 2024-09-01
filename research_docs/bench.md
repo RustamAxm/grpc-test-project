@@ -31,10 +31,42 @@ c2c5540e2b4d   grpc-test                                   "python /app/grpc_teâ
 d1831720cdd7   grpc-test                                   "python /app/grpc_teâ€¦"   About a minute ago   Up About a minute   0.0.0.0:5051->50051/tcp, :::5051->50051/tcp   test-grpc-1
 
 ```
-run bench 
+run_bench function in [file](../grpc_test_project/greeter_client.py)
 
 ```bash 
 2024-09-01 15:36:42.634 | INFO     | __main__:run_bench:51 - total: 
  ports=['5051', '5052', '5053', '5054', '5055'] 
  times=[116.99554181098938, 35.52334523200989, 19.87320375442505, 14.459768772125244, 10.743802070617676]
+```
+delete
+```bash
+rustam@nb-ubuntu-02:~/grpc-test-project$ ./run_conteiners.sh delete
++ action=delete
++ [[ delete == \c\r\e\a\t\e ]]
++ for i in {1..5}
++ docker stop test-grpc-1
+test-grpc-1
++ docker rm test-grpc-1
+test-grpc-1
++ for i in {1..5}
++ docker stop test-grpc-2
+test-grpc-2
++ docker rm test-grpc-2
+test-grpc-2
++ for i in {1..5}
++ docker stop test-grpc-3
+test-grpc-3
++ docker rm test-grpc-3
+test-grpc-3
++ for i in {1..5}
++ docker stop test-grpc-4
+test-grpc-4
++ docker rm test-grpc-4
+test-grpc-4
++ for i in {1..5}
++ docker stop test-grpc-5
+test-grpc-5
++ docker rm test-grpc-5
+test-grpc-5
+
 ```
