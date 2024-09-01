@@ -18,7 +18,6 @@ async def run(port):
 
 async def main():
     tasks = []
-    loop = asyncio.get_event_loop()
     for i in range(1, 6):
         port = f'505{i}'
         logger.info(f'create {port=}')
