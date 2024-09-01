@@ -14,6 +14,9 @@
 """The Python implementation of the GRPC helloworld.Greeter client."""
 
 from __future__ import print_function
+
+import time
+
 from loguru import logger
 
 import grpc
@@ -30,6 +33,22 @@ def run():
         stub = GreeterStub(channel)
         response = stub.SayHello(HelloRequest(name="you", id=23, payload=[1, 0, 0, 0]))
     logger.info("Greeter client received: " + f"\n{response=}")
+
+def run_bench():
+    logger.info("Will try to greet world ...")
+    times = []
+    ports = []
+    for i in range(1, 6):
+        start_  = time.time()
+        port = f'505{i}'
+        ports.append(port)
+        with grpc.insecure_channel(f"localhost:{port}") as channel:
+            stub = GreeterStub(channel)
+            response = stub.SayHello(HelloRequest(name="you", id=23, payload=[1, 0, 0, 0]))
+        times.append(time.time() - start_)
+        logger.info("Greeter client received: " + f"\n{response=}")
+
+    logger.info(f'total: \n {ports=} \n {times=}')
 
 
 if __name__ == "__main__":
